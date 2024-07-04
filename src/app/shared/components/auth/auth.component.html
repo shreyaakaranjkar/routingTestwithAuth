@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="col-md-12">
+        <main class="main">
+            <div class="card auth-form">
+                <div class="card-body">
+                    <div class="loginForm p-3">
+                        <h3 class="text-center bg-dark text-white p-3">
+                            {{hasAccount? 'LogIn Form' : 'Sign Up Form'}}</h3>
+                        <form [formGroup]="loginForm" (ngSubmit)="onLogin()" *ngIf="hasAccount">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="text" class="form-control" formControlName="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="text" class="form-control" formControlName="password">
+                            </div>
+                            <div class="text-right">
+                                <button class="btn btn-info" type="submit">Log In</button>
+                            </div>
+                        </form>
+                        <p>
+                            <a href="#" (click)="hasAccount = !hasAccount">
+                                {{!hasAccount ? 'Already  Have Account' : 'Dont have account yet?'}}
+                            </a>
+                        </p>
+                    </div>
+                    <div class="signUpFOrm p-3">
+                        <form [formGroup]="signUpForm" (ngSubmit)="onSignUp()" *ngIf="!hasAccount">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="text" class="form-control" formControlName="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="contact">Contact</label>
+                                <input type="text" class="form-control" formControlName="contact">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="text" class="form-control" formControlName="password">
+                            </div>
+                            <div class="form-group">
+                                <label for="Cpassword">Confirm Password</label>
+                                <input type="text" class="form-control" formControlName="Cpassword">
+                            </div>
+                            <div class="text-right">
+                                <button class="btn btn-info" type="submit">Sign Up</button>
+                            </div>
+                            <p>
+                                <a href="#" (click)="hasAccount = !hasAccount">
+                                    {{!hasAccount ? 'Already  Have an Account!' : 'Dont have Account yet?'}}
+                                </a>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>

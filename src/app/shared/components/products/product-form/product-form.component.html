@@ -1,0 +1,32 @@
+
+<mat-card class="mat-elevation-z7 my-3">
+    <h3 class="text-center bg-primary text-white p-3">
+        {{isInEditMode ? 'Update Product' : 'Add Product'}}
+    </h3>
+    <form [formGroup]="productForm" (ngSubmit)="onProductSubmit()">
+            <div class="form-group">
+                <label for="productName">Product Name</label>
+                <input type="text" class="form-control" formControlName="productName"
+                placeholder="Enter Product Name">
+            </div>
+            <div class="form-group">
+                <label for="productImage">Product Image</label>
+                <input type="text" class="form-control" formControlName="productImage"
+                placeholder="Enter Product Url">
+            </div>
+            <div class="form-group">
+                <label for="productStatus">Product Status</label>
+                <select class="form-control" formControlName="productStatus">
+                    <option value="In-Progress">In-Progress</option>
+                    <option value="Dispatched">Dispatched</option>
+                    <option value="Delivered">Delivered</option>
+                </select>
+            </div>
+            <div class="text-right">
+                <button mat-raised-button color="primary" (click)="onProductUpdate()"
+                type="button" *ngIf="isInEditMode">Update Product</button>
+                <button mat-raised-button color="primary"
+                type="submit" *ngIf="!isInEditMode">Add Product</button>
+            </div>
+    </form>
+</mat-card>

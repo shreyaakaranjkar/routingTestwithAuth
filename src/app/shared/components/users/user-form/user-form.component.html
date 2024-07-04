@@ -1,0 +1,30 @@
+<mat-card class="mat-elevation-z7 my-3">
+    <h3 class="text-center bg-primary text-white p-3">
+        {{isInEditMode ? 'Update User' : 'Add User'}}
+    </h3>
+    <form [formGroup]="userForm" (ngSubmit)="onUserSubmit()">
+            <div class="form-group">
+                <label for="userName">User Name</label>
+                <input type="text" class="form-control" formControlName="userName"
+                placeholder="Enter User Name">
+            </div>
+            <div class="form-group">
+                <label for="userImage">User Image</label>
+                <input type="text" class="form-control" formControlName="userImage"
+                placeholder="Enter Image Url">
+            </div>
+            <div class="form-group">
+                <label for="userRole">User Role</label>
+                <select class="form-control" formControlName="userRole">
+                    <option value="User">User</option>
+                    <option value="Admin">Admin</option>
+                </select>
+            </div>
+            <div class="text-right">
+                <button mat-raised-button color="primary" (click)="onUserUpdate()"
+                type="button" *ngIf="isInEditMode">Update User</button>
+                <button mat-raised-button color="primary"
+                type="submit" *ngIf="!isInEditMode">Add User</button>
+            </div>
+    </form>
+</mat-card>

@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-12 text-right">
+    <button
+      mat-raised-button
+      [routerLink]="['/products', 'addProduct']"
+      color="primary"
+    >
+      Add Product
+    </button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+    <mat-list>
+      <mat-list-item
+        *ngFor="let prod of productsArray"
+        (click)="selId = prod.productId"
+        [ngClass]="{ active: prod.productId === selId }"
+        [routerLink]="[prod.productId]"
+        [queryParams]="{ canReturnProd: prod.canReturn }"
+      >
+        {{ prod.productName }}
+      </mat-list-item>
+    </mat-list>
+  </div>
+  <div class="col-md-8">
+    <ng-container *ngIf="productId; else noData">
+      <p>Please Select a Product!</p>
+    </ng-container>
+    <ng-template #noData>
+      <router-outlet></router-outlet>
+    </ng-template>
+  </div>
+</div>

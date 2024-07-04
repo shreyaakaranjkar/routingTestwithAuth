@@ -1,0 +1,24 @@
+<div class="col-md-8 p-4" *ngIf="productObj; else noProduct">
+    <mat-card class="text-center mat-elevation-z7 p-4">
+        <mat-card-header>
+            <h4>
+               Product Name : {{productObj.productName}}
+            </h4>
+        </mat-card-header>
+        <img mat-card-image [src]="productObj.productImage" alt="">
+        <mat-card-content>
+            <h4>
+               Product Status : {{productObj.productStatus}}
+            </h4>
+        </mat-card-content>
+        <mat-card-footer>
+            <button mat-raised-button color="primary" class="my-2"
+            [routerLink]="['/products',productObj.productId,'edit']"
+            [queryParamsHandling]="'preserve'">
+            Edit Product</button>
+        </mat-card-footer>
+    </mat-card>
+</div>
+<ng-template #noProduct>
+    <p class="alert alert-info">Please Click on any Product Names to View Product Info</p>
+</ng-template>
