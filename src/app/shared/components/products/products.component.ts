@@ -18,11 +18,11 @@ export class ProductsComponent implements OnInit {
   ngOnInit() {
     this.productsArray = this.produServ.fetchAllProducts();
 
-    const routerUrl = this.route.url;
-    console.log(routerUrl);
+    // const routerUrl = this.route.url;
+    // console.log(routerUrl);
 
-    this.productId = routerUrl == '/products' ? true : false;
-    console.log(routerUrl,this.productId);
+    // this.productId = routerUrl == '/products' ? true : false;
+    // console.log(routerUrl,this.productId);
     
   }
 }

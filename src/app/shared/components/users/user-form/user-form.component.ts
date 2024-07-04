@@ -87,7 +87,7 @@ export class UserFormComponent implements OnInit {
   
 //onProductSubmit
 onUserSubmit(){
-  if(this.userForm.valid && !this.isInEditMode){
+  if(this.userForm.valid){
 
     // console.log(this.productForm.value)
 

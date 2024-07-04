@@ -25,11 +25,6 @@
     </mat-list>
   </div>
   <div class="col-md-8">
-    <ng-container *ngIf="productId; else noData">
-      <p>Please Select a Product!</p>
-    </ng-container>
-    <ng-template #noData>
-      <router-outlet></router-outlet>
-    </ng-template>
+  <router-outlet></router-outlet>
   </div>
 </div>

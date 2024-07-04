@@ -19,7 +19,13 @@ export class ProductFormComponent implements OnInit {
 
   constructor(private route : ActivatedRoute, private prodServ : ProductsService,
     private uuid : UuidService, private router : Router
-  ) { }
+  ) { 
+    // this.route.data
+    // .subscribe(res => {
+    //   this.productId = res['productInfo'];
+    //   console.log(this.productId)
+    // })
+  }
 
   ngOnInit() {
 
@@ -70,8 +76,15 @@ export class ProductFormComponent implements OnInit {
         this.productForm.patchValue(this.productObj)
       }
     })
-  }
 
+    console.log(this.productId)
+  //   if(this.productId){
+  //         this.isInEditMode = true;
+  
+  //         this.productObj = this.prodServ.getSingleProduct(this.productId);
+  //         this.productForm.patchValue(this.productObj)
+  // }
+  }
 
   //createProductForm
 
@@ -85,7 +98,7 @@ export class ProductFormComponent implements OnInit {
   
 //onProductSubmit
 onProductSubmit(){
-  if(this.productForm.valid && !this.isInEditMode){
+  if(this.productForm.valid){
     let canValue = Math.random() >=.5? 1:0;
     console.log(canValue)
     // console.log(this.productForm.value)
